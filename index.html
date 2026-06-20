@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puneet Raghav | AI Engineer</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        background: '#050505',
+                        surface: '#111111',
+                        border: '#222222',
+                        muted: '#888888',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #050505;
+            color: #ffffff;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050505;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-white selection:text-black">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed w-full top-0 z-50 bg-background/70 backdrop-blur-lg border-b border-white/10 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-white font-bold text-2xl tracking-tighter">PR<span class="text-gray-500">.</span></a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-muted">
+                <a href="#home" class="hover:text-white transition-colors">Home</a>
+                <a href="#about" class="hover:text-white transition-colors">About</a>
+                <a href="#skills" class="hover:text-white transition-colors">Skills</a>
+                <a href="#projects" class="hover:text-white transition-colors">Projects</a>
+                <a href="#contact" class="hover:text-white transition-colors">Contact Us</a>
+            </div>
+
+            <!-- Mobile Menu Button (Optional, omitted for pure desktop parity, but good for real use) -->
+            <div class="md:hidden text-white text-xl">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home / Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 px-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            
+            <!-- Text Content -->
+            <div class="space-y-6 animate-on-scroll opacity-0 translate-y-10 transition duration-1000 ease-out">
+                <p class="text-muted text-sm md:text-base uppercase tracking-[0.2em] font-medium">AI Engineer & Developer</p>
+                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight">
+                    Hi, I'm <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-500">Puneet Raghav.</span>
+                </h1>
+                <p class="text-muted text-lg max-w-md leading-relaxed">
+                    Student of B.Tech IV Year CSE (AI & ML) at Vishveswarya Group of Institutions. I specialize in building intelligent systems and extracting insights from complex data.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#projects" class="bg-white text-black px-8 py-3 rounded-md font-semibold hover:bg-gray-200 transition-colors">
+                        View Projects
+                    </a>
+                    <a href="#contact" class="border border-border text-white px-8 py-3 rounded-md font-semibold hover:border-white transition-colors">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+
+            <!-- Profile Image -->
+            <div class="flex justify-center md:justify-end animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-200 ease-out">
+                <div class="relative w-72 h-[22rem] md:w-80 md:h-[28rem] rounded-2xl overflow-hidden border border-border shadow-2xl group">
+                    <!-- Ensure the image you downloaded is named profile.jpg -->
+                    <img src="profile.jpeg" alt="Puneet Raghav" class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition duration-700 ease-in-out transform group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-32 bg-surface">
+        <div class="max-w-4xl mx-auto px-6 animate-on-scroll opacity-0 translate-y-10 transition duration-1000 ease-out">
+            <h2 class="text-sm uppercase tracking-[0.2em] text-muted mb-2 font-medium">01. About Me</h2>
+            <h3 class="text-3xl md:text-4xl font-bold mb-8">Bridging the gap between data and logic.</h3>
+            
+            <div class="text-muted text-lg leading-relaxed space-y-6">
+                <p>
+                    I am Puneet Raghav, an enthusiastic and dedicated student currently in my final year of B.Tech in Computer Science, specializing in Artificial Intelligence and Machine Learning at Vishveswarya Group of Institutions, Gautam Buddha Nagar.
+                </p>
+                <p>
+                    My journey in technology is driven by a deep curiosity for how systems learn and evolve. I spend my time building scalable machine learning pipelines, diving deep into natural language processing, and creating data-driven solutions that have real-world impact.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-32">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-sm uppercase tracking-[0.2em] text-muted mb-12 font-medium animate-on-scroll opacity-0 translate-y-10 transition duration-1000 ease-out">02. My Skills</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Skill Block 1 -->
+                <div class="bg-surface border border-border p-8 rounded-xl hover:border-gray-500 transition-colors animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-100 ease-out">
+                    <i class="fas fa-brain text-3xl mb-6 text-gray-100"></i>
+                    <h3 class="text-xl font-bold mb-4">AI & Machine Learning</h3>
+                    <ul class="text-muted space-y-2 text-sm font-medium">
+                        <li>Machine Learning</li>
+                        <li>Deep Learning</li>
+                        <li>Natural Language Processing</li>
+                        <li>Generative AI</li>
+                    </ul>
+                </div>
+
+                <!-- Skill Block 2 -->
+                <div class="bg-surface border border-border p-8 rounded-xl hover:border-gray-500 transition-colors animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-200 ease-out">
+                    <i class="fab fa-python text-3xl mb-6 text-gray-100"></i>
+                    <h3 class="text-xl font-bold mb-4">Programming & Data</h3>
+                    <ul class="text-muted space-y-2 text-sm font-medium">
+                        <li>Python</li>
+                        <li>Numpy & Pandas</li>
+                        <li>Matplotlib & Seaborn</li>
+                        <li>Scikit-learn</li>
+                    </ul>
+                </div>
+
+                <!-- Skill Block 3 -->
+                <div class="bg-surface border border-border p-8 rounded-xl hover:border-gray-500 transition-colors animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-300 ease-out">
+                    <i class="fas fa-database text-3xl mb-6 text-gray-100"></i>
+                    <h3 class="text-xl font-bold mb-4">Analytics Tools</h3>
+                    <ul class="text-muted space-y-2 text-sm font-medium">
+                        <li>SQL</li>
+                        <li>Power BI</li>
+                        <li>MS Excel</li>
+                    </ul>
+                </div>
+
+                <!-- Skill Block 4 -->
+                <div class="bg-surface border border-border p-8 rounded-xl hover:border-gray-500 transition-colors animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-400 ease-out">
+                    <i class="fas fa-code text-3xl mb-6 text-gray-100"></i>
+                    <h3 class="text-xl font-bold mb-4">Web & Workflow</h3>
+                    <ul class="text-muted space-y-2 text-sm font-medium">
+                        <li>HTML, CSS, JavaScript</li>
+                        <li>Figma</li>
+                        <li>GitHub</li>
+                        <li>n8n</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-32 bg-surface">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-sm uppercase tracking-[0.2em] text-muted mb-12 font-medium animate-on-scroll opacity-0 translate-y-10 transition duration-1000 ease-out">03. Featured Projects</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Project 1 -->
+                <div class="group relative bg-background border border-border p-8 rounded-xl hover:-translate-y-2 hover:border-gray-400 transition-all duration-300 animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-100 ease-out">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-xs font-bold tracking-widest uppercase text-gray-400">Data Science</span>
+                        <a href="https://github.com/puneetraghav-dev/Data-Science-Projects/blob/main/Feature-Extraction-Project.ipynb" target="_blank" class="text-2xl text-muted hover:text-white transition-colors"><i class="fab fa-github"></i></a>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white">Feature Extraction</h3>
+                    <p class="text-muted text-sm leading-relaxed mb-6">
+                        Techniques and pipelines applied to datasets to efficiently extract meaningful features, improving model accuracy and optimization.
+                    </p>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="group relative bg-background border border-border p-8 rounded-xl hover:-translate-y-2 hover:border-gray-400 transition-all duration-300 animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-200 ease-out">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-xs font-bold tracking-widest uppercase text-gray-400">Data Science</span>
+                        <a href="https://github.com/puneetraghav-dev/Data-Science-Projects/blob/main/IPL-2022-Analysis.ipynb" target="_blank" class="text-2xl text-muted hover:text-white transition-colors"><i class="fab fa-github"></i></a>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white">IPL 2022 Analysis</h3>
+                    <p class="text-muted text-sm leading-relaxed mb-6">
+                        Comprehensive Exploratory Data Analysis (EDA) on the Indian Premier League 2022 dataset to uncover statistics, trends, and team performances.
+                    </p>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="group relative bg-background border border-border p-8 rounded-xl hover:-translate-y-2 hover:border-gray-400 transition-all duration-300 animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-300 ease-out">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-xs font-bold tracking-widest uppercase text-gray-400">Machine Learning</span>
+                        <a href="https://github.com/puneetraghav-dev/Machine-Learning-Projects/blob/main/insurance_ml_pipeline.ipynb" target="_blank" class="text-2xl text-muted hover:text-white transition-colors"><i class="fab fa-github"></i></a>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white">Insurance ML Pipeline</h3>
+                    <p class="text-muted text-sm leading-relaxed mb-6">
+                        An end-to-end machine learning pipeline built to accurately predict insurance costs using demographic and health data.
+                    </p>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="group relative bg-background border border-border p-8 rounded-xl hover:-translate-y-2 hover:border-gray-400 transition-all duration-300 animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-400 ease-out">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-xs font-bold tracking-widest uppercase text-gray-400">Machine Learning</span>
+                        <a href="https://github.com/puneetraghav-dev/Machine-Learning-Projects/blob/main/linear_regression_model.ipynb" target="_blank" class="text-2xl text-muted hover:text-white transition-colors"><i class="fab fa-github"></i></a>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white">Linear Regression Model</h3>
+                    <p class="text-muted text-sm leading-relaxed mb-6">
+                        A predictive algorithm utilizing Linear Regression to effectively map continuous variables and forecast future numeric trends.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32">
+        <div class="max-w-3xl mx-auto px-6 text-center animate-on-scroll opacity-0 translate-y-10 transition duration-1000 ease-out">
+            <h2 class="text-sm uppercase tracking-[0.2em] text-muted mb-6 font-medium">04. What's Next?</h2>
+            <h3 class="text-4xl md:text-5xl font-bold mb-8">Get In Touch</h3>
+            <p class="text-muted text-lg leading-relaxed mb-10 max-w-xl mx-auto">
+                I'm currently looking for new opportunities, internships, and collaborative projects. Whether you have a question or just want to connect, I'll try my best to get back to you!
+            </p>
+            
+            <a href="mailto:puneet.raghav06@gmail.com" class="inline-block border-2 border-white text-white font-bold px-8 py-4 rounded-md hover:bg-white hover:text-black transition-colors mb-16">
+                Say Hello
+            </a>
+
+            <!-- Social Links -->
+            <div class="flex justify-center space-x-8 text-2xl">
+                <a href="https://github.com/puneetraghav-dev" target="_blank" class="text-muted hover:text-white hover:-translate-y-1 transition-all">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://x.com/puneet_raghav06" target="_blank" class="text-muted hover:text-white hover:-translate-y-1 transition-all">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+                <a href="https://www.instagram.com/buildwithpuneet?igsh=NjRhZ2t5MTdpamx5" target="_blank" class="text-muted hover:text-white hover:-translate-y-1 transition-all">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-border text-center text-sm text-muted">
+        <p>Built and designed by Puneet Raghav &copy; 2026</p>
+    </footer>
+
+    <!-- Scroll Reveal Logic (Replicating Framer Motion Effects) -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
