@@ -3,18 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Puneet Raghav | AI Engineer</title>
+    <title>Puneet Raghav | AI Automation & Engineering</title>
     
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
             theme: {
@@ -52,58 +48,75 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #555;
         }
+        
+        /* Gallery Marquee Animation */
+        @keyframes scrollX {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-scroll-container {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+        }
+        .animate-scroll-content {
+            display: inline-flex;
+            width: max-content;
+            animation: scrollX 30s linear infinite;
+        }
+        .animate-scroll-content:hover {
+            animation-play-state: paused;
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-white selection:text-black">
 
-    <!-- Navigation Bar -->
     <nav class="fixed w-full top-0 z-50 bg-background/70 backdrop-blur-lg border-b border-white/10 transition-all duration-300">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#home" class="text-white font-bold text-2xl tracking-tighter">PR<span class="text-gray-500">.</span></a>
             
-            <!-- Desktop Menu -->
             <div class="hidden md:flex space-x-8 text-sm font-medium text-muted">
                 <a href="#home" class="hover:text-white transition-colors">Home</a>
                 <a href="#about" class="hover:text-white transition-colors">About</a>
+                <a href="#experience" class="hover:text-white transition-colors">Experience</a>
                 <a href="#skills" class="hover:text-white transition-colors">Skills</a>
                 <a href="#projects" class="hover:text-white transition-colors">Projects</a>
-                <a href="#contact" class="hover:text-white transition-colors">Contact Us</a>
+                <a href="#gallery" class="hover:text-white transition-colors">Gallery</a>
+                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
             </div>
 
-            <!-- Mobile Menu Button (Optional, omitted for pure desktop parity, but good for real use) -->
             <div class="md:hidden text-white text-xl">
                 <i class="fas fa-bars"></i>
             </div>
         </div>
     </nav>
 
-    <!-- Home / Hero Section -->
     <section id="home" class="min-h-screen flex items-center justify-center pt-20 px-6">
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             
-            <!-- Text Content -->
             <div class="space-y-6 animate-on-scroll opacity-0 translate-y-10 transition duration-1000 ease-out">
-                <p class="text-muted text-sm md:text-base uppercase tracking-[0.2em] font-medium">AI Engineer & Developer</p>
+                <p class="text-muted text-sm md:text-base uppercase tracking-[0.2em] font-medium">Founder | AI Engineer & Automation Expert</p>
                 <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight">
                     Hi, I'm <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-500">Puneet Raghav.</span>
                 </h1>
                 <p class="text-muted text-lg max-w-md leading-relaxed">
-                    Student of B.Tech IV Year CSE (AI & ML) at Vishveswarya Group of Institutions. I build and train machine learning and deep learning models that turn raw data into working predictions.
+                    I build AI agents and automated workflows for businesses, transforming cognitive infrastructure into scalable solutions through full-stack LLM applications.
                 </p>
                 <div class="flex flex-wrap gap-4 pt-4">
-                    <a href="#projects" class="bg-white text-black px-8 py-3 rounded-md font-semibold hover:bg-gray-200 transition-colors">
-                        View Projects
+                    <a href="https://drive.google.com/file/d/176VEfZ7_fVrQ-CSUwK4ajMjokHsPZR8K/view?usp=drivesdk" target="_blank" class="bg-white text-black px-8 py-3 rounded-md font-semibold hover:bg-gray-200 transition-colors flex items-center gap-2">
+                        <i class="fas fa-file-pdf"></i> View Resume
+                    </a>
+                    <a href="#projects" class="border border-border bg-surface text-white px-8 py-3 rounded-md font-semibold hover:border-gray-500 transition-colors">
+                        Projects
                     </a>
                     <a href="#contact" class="border border-border text-white px-8 py-3 rounded-md font-semibold hover:border-white transition-colors">
-                        Contact Me
+                        Contact
                     </a>
                 </div>
             </div>
 
-            <!-- Profile Image -->
             <div class="flex justify-center md:justify-end animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-200 ease-out">
                 <div class="relative w-72 h-[22rem] md:w-80 md:h-[28rem] rounded-2xl overflow-hidden border border-border shadow-2xl group">
-                    <!-- Ensure the image you downloaded is named profile.jpg -->
                     <img src="profile.jpeg" alt="Puneet Raghav" class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition duration-700 ease-in-out transform group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
                 </div>
@@ -112,7 +125,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="py-32 bg-surface">
         <div class="max-w-4xl mx-auto px-6 animate-on-scroll opacity-0 translate-y-10 transition duration-1000 ease-out">
             <h2 class="text-sm uppercase tracking-[0.2em] text-muted mb-2 font-medium">01. About Me</h2>
@@ -120,7 +132,7 @@
             
             <div class="text-muted text-lg leading-relaxed space-y-6">
                 <p>
-                    I am Puneet Raghav, a final-year B.Tech student in Computer Science, specializing in Artificial Intelligence and Machine Learning at Vishveswarya Group of Institutions, Gautam Buddha Nagar.
+                    I am Puneet Raghav, an AI Engineer and developer passionate about building end-to-end intelligent systems.
                 </p>
                 <p>
                     My work sits at the intersection of classical machine learning and deep learning. I use Python with NumPy, Pandas, and Scikit-learn to explore, clean, and model data — from exploratory data analysis and feature engineering to building and evaluating algorithms with libraries like XGBoost, and tuning them for better performance.
@@ -135,15 +147,49 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-32">
+    <section id="experience" class="py-32 border-t border-border bg-background">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-sm uppercase tracking-[0.2em] text-muted mb-12 font-medium animate-on-scroll opacity-0 translate-y-10 transition duration-1000 ease-out">02. Experience</h2>
+            
+            <div class="relative pl-8 border-l border-border animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-100 ease-out">
+                <div class="absolute w-4 h-4 bg-gray-200 rounded-full -left-[9px] top-1 border-4 border-background"></div>
+                
+                <div class="mb-2 flex flex-col md:flex-row md:items-center justify-between">
+                    <h3 class="text-2xl font-bold text-white">UI/UX Designer Intern</h3>
+                    <span class="text-sm text-muted font-medium bg-surface px-3 py-1 rounded-full border border-border mt-2 md:mt-0">October 2025 – November 2025</span>
+                </div>
+                
+                <a href="https://www.aetherai.co/" target="_blank" class="text-lg font-medium text-gray-400 hover:text-white transition-colors inline-block mb-6">
+                    Aether AI Pvt. Ltd. <i class="fas fa-external-link-alt text-xs ml-1"></i>
+                </a>
+
+                <p class="text-muted text-base leading-relaxed mb-6">
+                    As a UI/UX Designer Intern at Aether AI, I collaborated with the development team to design intuitive, user-centric, and visually engaging mobile application interfaces. I gained hands-on experience in the complete UI/UX design process, from understanding user requirements to creating interactive prototypes and supporting implementation.
+                </p>
+
+                <h4 class="text-white font-semibold mb-3">Key Contributions:</h4>
+                <ul class="list-disc list-outside ml-5 text-muted space-y-2 mb-6">
+                    <li>Designed clean, modern, and user-friendly mobile application interfaces with a focus on usability and consistency.</li>
+                    <li>Collaborated closely with developers to ensure accurate implementation of UI designs.</li>
+                    <li>Conducted user research and translated user needs into wireframes, user flows, and interactive prototypes.</li>
+                    <li>Developed interactive prototypes to demonstrate application workflows and user interactions.</li>
+                    <li>Contributed to the creation of reusable UI components, improving design consistency and development efficiency.</li>
+                    <li>Applied user-centered design principles to enhance the overall user experience.</li>
+                </ul>
+
+                <p class="text-sm text-gray-400 bg-surface p-4 rounded-lg border border-border">
+                    <strong class="text-gray-200">Skills Strengthened:</strong> UI/UX Design, Wireframing, Prototyping, User Research, Design Systems, Collaboration, and Problem Solving within a fast-paced environment.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-32 bg-surface">
         <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-sm uppercase tracking-[0.2em] text-muted mb-12 font-medium animate-on-scroll opacity-0 translate-y-10 transition duration-1000 ease-out">02. My Skills</h2>
+            <h2 class="text-sm uppercase tracking-[0.2em] text-muted mb-12 font-medium animate-on-scroll opacity-0 translate-y-10 transition duration-1000 ease-out">03. My Skills</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                
-                <!-- Skill Block 1 -->
-                <div class="bg-surface border border-border p-8 rounded-xl hover:border-gray-500 transition-colors animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-100 ease-out">
+                <div class="bg-background border border-border p-8 rounded-xl hover:border-gray-500 transition-colors animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-100 ease-out">
                     <i class="fab fa-python text-3xl mb-6 text-gray-100"></i>
                     <h3 class="text-xl font-bold mb-4">Programming & Data</h3>
                     <ul class="text-muted space-y-2 text-sm font-medium">
@@ -154,8 +200,7 @@
                     </ul>
                 </div>
 
-                <!-- Skill Block 2 -->
-                <div class="bg-surface border border-border p-8 rounded-xl hover:border-gray-500 transition-colors animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-200 ease-out">
+                <div class="bg-background border border-border p-8 rounded-xl hover:border-gray-500 transition-colors animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-200 ease-out">
                     <i class="fas fa-diagram-project text-3xl mb-6 text-gray-100"></i>
                     <h3 class="text-xl font-bold mb-4">Machine Learning</h3>
                     <ul class="text-muted space-y-2 text-sm font-medium">
@@ -167,8 +212,7 @@
                     </ul>
                 </div>
 
-                <!-- Skill Block 3 -->
-                <div class="bg-surface border border-border p-8 rounded-xl hover:border-gray-500 transition-colors animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-300 ease-out">
+                <div class="bg-background border border-border p-8 rounded-xl hover:border-gray-500 transition-colors animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-300 ease-out">
                     <i class="fas fa-brain text-3xl mb-6 text-gray-100"></i>
                     <h3 class="text-xl font-bold mb-4">Deep Learning</h3>
                     <ul class="text-muted space-y-2 text-sm font-medium">
@@ -179,8 +223,7 @@
                     </ul>
                 </div>
 
-                <!-- Skill Block 4 -->
-                <div class="bg-surface border border-border p-8 rounded-xl hover:border-gray-500 transition-colors animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-400 ease-out">
+                <div class="bg-background border border-border p-8 rounded-xl hover:border-gray-500 transition-colors animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-400 ease-out">
                     <i class="fas fa-magnifying-glass-chart text-3xl mb-6 text-gray-100"></i>
                     <h3 class="text-xl font-bold mb-4">NLP & Data Analysis</h3>
                     <ul class="text-muted space-y-2 text-sm font-medium">
@@ -189,116 +232,140 @@
                         <li>Data Preprocessing</li>
                     </ul>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-32 bg-surface">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-sm uppercase tracking-[0.2em] text-muted mb-12 font-medium animate-on-scroll opacity-0 translate-y-10 transition duration-1000 ease-out">03. Featured Projects</h2>
+    <section id="projects" class="py-32 bg-background border-y border-border">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-sm uppercase tracking-[0.2em] text-muted mb-12 font-medium animate-on-scroll opacity-0 translate-y-10 transition duration-1000 ease-out">04. Featured Projects</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 
-                <!-- Project 1 -->
-                <div class="group relative bg-background border border-border rounded-xl overflow-hidden hover:-translate-y-2 hover:border-gray-400 transition-all duration-300 animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-100 ease-out">
-                    <div class="w-full h-44 overflow-hidden border-b border-border">
-                        <img src="https://picsum.photos/seed/feature-extraction/600/400" alt="Feature Extraction project cover" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 ease-in-out transform group-hover:scale-105">
+                <div class="group relative bg-surface border border-border rounded-xl overflow-hidden hover:-translate-y-2 hover:border-gray-400 transition-all duration-300 flex flex-col">
+                    <div class="w-full h-40 overflow-hidden border-b border-border">
+                        <img src="https://image.pollinations.ai/prompt/data-science-feature-extraction-code-graphs-dark-minimalist?width=600&height=400&nologo=true" alt="Feature Extraction" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 transform group-hover:scale-105">
                     </div>
-                    <div class="p-8">
-                        <div class="flex justify-between items-start mb-6">
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex justify-between items-start mb-4">
                             <span class="text-xs font-bold tracking-widest uppercase text-gray-400">Data Science</span>
-                            <a href="https://github.com/puneetraghav-dev/Data-Science-Projects/blob/main/Feature-Extraction-Project.ipynb" target="_blank" class="text-2xl text-muted hover:text-white transition-colors"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/puneetraghav-dev/Data-Science-Projects/blob/main/Feature-Extraction-Project.ipynb" target="_blank" class="text-xl text-muted hover:text-white transition-colors"><i class="fab fa-github"></i></a>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 text-white">Feature Extraction</h3>
-                        <p class="text-muted text-sm leading-relaxed mb-2">
-                            Feature engineering techniques applied to raw datasets to extract meaningful, model-ready features, improving downstream model accuracy.
+                        <h3 class="text-xl font-bold mb-2 text-white">Feature Extraction</h3>
+                        <p class="text-muted text-sm leading-relaxed mb-2 flex-grow">
+                            Feature engineering techniques applied to raw datasets to extract meaningful, model-ready features, improving downstream accuracy.
                         </p>
                     </div>
                 </div>
 
-                <!-- Project 2 -->
-                <div class="group relative bg-background border border-border rounded-xl overflow-hidden hover:-translate-y-2 hover:border-gray-400 transition-all duration-300 animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-200 ease-out">
-                    <div class="w-full h-44 overflow-hidden border-b border-border">
-                        <img src="https://picsum.photos/seed/ipl-analysis/600/400" alt="IPL 2022 Analysis project cover" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 ease-in-out transform group-hover:scale-105">
+                <div class="group relative bg-surface border border-border rounded-xl overflow-hidden hover:-translate-y-2 hover:border-gray-400 transition-all duration-300 flex flex-col">
+                    <div class="w-full h-40 overflow-hidden border-b border-border">
+                        <img src="https://image.pollinations.ai/prompt/cricket-stadium-data-analytics-dashboard-dark-ui?width=600&height=400&nologo=true" alt="IPL 2022 Analysis" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 transform group-hover:scale-105">
                     </div>
-                    <div class="p-8">
-                        <div class="flex justify-between items-start mb-6">
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex justify-between items-start mb-4">
                             <span class="text-xs font-bold tracking-widest uppercase text-gray-400">EDA</span>
-                            <a href="https://github.com/puneetraghav-dev/Data-Science-Projects/blob/main/IPL-2022-Analysis.ipynb" target="_blank" class="text-2xl text-muted hover:text-white transition-colors"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/puneetraghav-dev/Data-Science-Projects/blob/main/IPL-2022-Analysis.ipynb" target="_blank" class="text-xl text-muted hover:text-white transition-colors"><i class="fab fa-github"></i></a>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 text-white">IPL 2022 Analysis</h3>
-                        <p class="text-muted text-sm leading-relaxed mb-2">
+                        <h3 class="text-xl font-bold mb-2 text-white">IPL 2022 Analysis</h3>
+                        <p class="text-muted text-sm leading-relaxed mb-2 flex-grow">
                             Exploratory Data Analysis on the Indian Premier League 2022 dataset to uncover statistics, trends, and team performances.
                         </p>
                     </div>
                 </div>
 
-                <!-- Project 3 -->
-                <div class="group relative bg-background border border-border rounded-xl overflow-hidden hover:-translate-y-2 hover:border-gray-400 transition-all duration-300 animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-300 ease-out">
-                    <div class="w-full h-44 overflow-hidden border-b border-border">
-                        <img src="https://picsum.photos/seed/insurance-ml/600/400" alt="Insurance ML Pipeline project cover" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 ease-in-out transform group-hover:scale-105">
+                <div class="group relative bg-surface border border-border rounded-xl overflow-hidden hover:-translate-y-2 hover:border-gray-400 transition-all duration-300 flex flex-col">
+                    <div class="w-full h-40 overflow-hidden border-b border-border">
+                        <img src="https://image.pollinations.ai/prompt/health-medical-insurance-data-machine-learning-dashboard-dark?width=600&height=400&nologo=true" alt="Insurance ML Pipeline" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 transform group-hover:scale-105">
                     </div>
-                    <div class="p-8">
-                        <div class="flex justify-between items-start mb-6">
-                            <span class="text-xs font-bold tracking-widest uppercase text-gray-400">Machine Learning</span>
-                            <a href="https://github.com/puneetraghav-dev/Machine-Learning-Projects/blob/main/insurance_ml_pipeline.ipynb" target="_blank" class="text-2xl text-muted hover:text-white transition-colors"><i class="fab fa-github"></i></a>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-bold tracking-widest uppercase text-gray-400">ML</span>
+                            <a href="https://github.com/puneetraghav-dev/Machine-Learning-Projects/blob/main/insurance_ml_pipeline.ipynb" target="_blank" class="text-xl text-muted hover:text-white transition-colors"><i class="fab fa-github"></i></a>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 text-white">Insurance ML Pipeline</h3>
-                        <p class="text-muted text-sm leading-relaxed mb-2">
-                            An end-to-end Scikit-learn pipeline — preprocessing, feature engineering, and model evaluation — to predict insurance costs from demographic and health data.
+                        <h3 class="text-xl font-bold mb-2 text-white">Insurance ML Pipeline</h3>
+                        <p class="text-muted text-sm leading-relaxed mb-2 flex-grow">
+                            An end-to-end Scikit-learn pipeline to predict insurance costs from demographic and health data.
                         </p>
                     </div>
                 </div>
 
-                <!-- Project 4 -->
-                <div class="group relative bg-background border border-border rounded-xl overflow-hidden hover:-translate-y-2 hover:border-gray-400 transition-all duration-300 animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-400 ease-out">
-                    <div class="w-full h-44 overflow-hidden border-b border-border">
-                        <img src="https://picsum.photos/seed/linear-regression/600/400" alt="Linear Regression Model project cover" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 ease-in-out transform group-hover:scale-105">
+                <div class="group relative bg-surface border border-border rounded-xl overflow-hidden hover:-translate-y-2 hover:border-gray-400 transition-all duration-300 flex flex-col">
+                    <div class="w-full h-40 overflow-hidden border-b border-border">
+                        <img src="https://image.pollinations.ai/prompt/linear-regression-scatter-plot-data-visualization-dark-tech?width=600&height=400&nologo=true" alt="Linear Regression Model" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 transform group-hover:scale-105">
                     </div>
-                    <div class="p-8">
-                        <div class="flex justify-between items-start mb-6">
-                            <span class="text-xs font-bold tracking-widest uppercase text-gray-400">Machine Learning</span>
-                            <a href="https://github.com/puneetraghav-dev/Machine-Learning-Projects/blob/main/linear_regression_model.ipynb" target="_blank" class="text-2xl text-muted hover:text-white transition-colors"><i class="fab fa-github"></i></a>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-bold tracking-widest uppercase text-gray-400">ML</span>
+                            <a href="https://github.com/puneetraghav-dev/Machine-Learning-Projects/blob/main/linear_regression_model.ipynb" target="_blank" class="text-xl text-muted hover:text-white transition-colors"><i class="fab fa-github"></i></a>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 text-white">Linear Regression Model</h3>
-                        <p class="text-muted text-sm leading-relaxed mb-2">
+                        <h3 class="text-xl font-bold mb-2 text-white">Linear Regression</h3>
+                        <p class="text-muted text-sm leading-relaxed mb-2 flex-grow">
                             A predictive algorithm using Linear Regression to map continuous variables and forecast numeric trends.
                         </p>
                     </div>
                 </div>
 
-                <!-- Project 5 -->
-                <div class="group relative bg-background border border-border rounded-xl overflow-hidden hover:-translate-y-2 hover:border-gray-400 transition-all duration-300 animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-500 ease-out">
-                    <div class="w-full h-44 overflow-hidden border-b border-border">
-                        <img src="https://picsum.photos/seed/iris-ann/600/400" alt="Iris Flower Classification ANN project cover" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 ease-in-out transform group-hover:scale-105">
+                <div class="group relative bg-surface border border-border rounded-xl overflow-hidden hover:-translate-y-2 hover:border-gray-400 transition-all duration-300 flex flex-col">
+                    <div class="w-full h-40 overflow-hidden border-b border-border">
+                        <img src="https://image.pollinations.ai/prompt/iris-flower-digital-neural-network-classification-dark-ai?width=600&height=400&nologo=true" alt="Iris Flower Classification" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 transform group-hover:scale-105">
                     </div>
-                    <div class="p-8">
-                        <div class="flex justify-between items-start mb-6">
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex justify-between items-start mb-4">
                             <span class="text-xs font-bold tracking-widest uppercase text-gray-400">Deep Learning</span>
-                            <a href="https://github.com/puneetraghav-dev/iris-flower-classification-ann" target="_blank" class="text-2xl text-muted hover:text-white transition-colors"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/puneetraghav-dev/iris-flower-classification-ann" target="_blank" class="text-xl text-muted hover:text-white transition-colors"><i class="fab fa-github"></i></a>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 text-white">Iris Flower Classification (ANN)</h3>
-                        <p class="text-muted text-sm leading-relaxed mb-2">
-                            An Artificial Neural Network built with TensorFlow/Keras to classify Iris flower species from measurement data, covering preprocessing through evaluation.
+                        <h3 class="text-xl font-bold mb-2 text-white">Iris Flower ANN</h3>
+                        <p class="text-muted text-sm leading-relaxed mb-2 flex-grow">
+                            An Artificial Neural Network built with TensorFlow/Keras to classify Iris flower species from measurement data.
                         </p>
                     </div>
                 </div>
 
-                <!-- Project 6 -->
-                <div class="group relative bg-background border border-border rounded-xl overflow-hidden hover:-translate-y-2 hover:border-gray-400 transition-all duration-300 animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-600 ease-out">
-                    <div class="w-full h-44 overflow-hidden border-b border-border">
-                        <img src="https://picsum.photos/seed/emotion-detection/600/400" alt="Emotion Detection from Text project cover" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 ease-in-out transform group-hover:scale-105">
+                <div class="group relative bg-surface border border-border rounded-xl overflow-hidden hover:-translate-y-2 hover:border-gray-400 transition-all duration-300 flex flex-col">
+                    <div class="w-full h-40 overflow-hidden border-b border-border">
+                        <img src="https://image.pollinations.ai/prompt/natural-language-processing-emotion-detection-text-nodes-dark?width=600&height=400&nologo=true" alt="Emotion Detection from Text" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 transform group-hover:scale-105">
                     </div>
-                    <div class="p-8">
-                        <div class="flex justify-between items-start mb-6">
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex justify-between items-start mb-4">
                             <span class="text-xs font-bold tracking-widest uppercase text-gray-400">NLP</span>
-                            <a href="https://github.com/puneetraghav-dev/Emotion-Detection-from-Text-using-Machine-Learning-NLP" target="_blank" class="text-2xl text-muted hover:text-white transition-colors"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/puneetraghav-dev/Emotion-Detection-from-Text-using-Machine-Learning-NLP" target="_blank" class="text-xl text-muted hover:text-white transition-colors"><i class="fab fa-github"></i></a>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 text-white">Emotion Detection from Text</h3>
-                        <p class="text-muted text-sm leading-relaxed mb-2">
-                            An NLP and machine learning pipeline that classifies the emotion expressed in a piece of text, from text preprocessing to model evaluation.
+                        <h3 class="text-xl font-bold mb-2 text-white">Emotion Detection</h3>
+                        <p class="text-muted text-sm leading-relaxed mb-2 flex-grow">
+                            An NLP and machine learning pipeline that classifies the emotion expressed in a piece of text.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="group relative bg-surface border border-border rounded-xl overflow-hidden hover:-translate-y-2 hover:border-gray-400 transition-all duration-300 flex flex-col">
+                    <div class="w-full h-40 overflow-hidden border-b border-border">
+                        <img src="https://image.pollinations.ai/prompt/modern-factory-robotic-arm-manufacturing-quality-ai-analytics-dark?width=600&height=400&nologo=true" alt="AI Manufacturing Quality Analytics" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 transform group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-bold tracking-widest uppercase text-gray-400">AI Analytics</span>
+                            <a href="https://github.com/puneetraghav-dev/AI-Manufacturing-Quality-Analytics" target="_blank" class="text-xl text-muted hover:text-white transition-colors"><i class="fab fa-github"></i></a>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white">Manufacturing Quality</h3>
+                        <p class="text-muted text-sm leading-relaxed mb-2 flex-grow">
+                            An AI-driven analytics solution predicting and analyzing quality metrics in manufacturing environments.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="group relative bg-surface border border-border rounded-xl overflow-hidden hover:-translate-y-2 hover:border-gray-400 transition-all duration-300 flex flex-col">
+                    <div class="w-full h-40 overflow-hidden border-b border-border">
+                        <img src="https://image.pollinations.ai/prompt/handwritten-digit-classification-mnist-cnn-computer-vision-dark?width=600&height=400&nologo=true" alt="Handwritten Digit Classification" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 transform group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-bold tracking-widest uppercase text-gray-400">Computer Vision</span>
+                            <a href="https://github.com/puneetraghav-dev/Handwritten-Digit-Classification-using-Perceptron-ANN-CNN-" target="_blank" class="text-xl text-muted hover:text-white transition-colors"><i class="fab fa-github"></i></a>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white">Digit Classification</h3>
+                        <p class="text-muted text-sm leading-relaxed mb-2 flex-grow">
+                            Handwritten digit recognition implemented across Perceptron, ANN, and CNN architectures to benchmark accuracy.
                         </p>
                     </div>
                 </div>
@@ -307,20 +374,88 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-32">
+    <section id="gallery" class="py-32 bg-surface overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6 mb-12">
+            <h2 class="text-sm uppercase tracking-[0.2em] text-muted font-medium animate-on-scroll opacity-0 translate-y-10 transition duration-1000 ease-out">05. Achievements & Gallery</h2>
+        </div>
+        
+        <div class="animate-scroll-container">
+            <div class="animate-scroll-content gap-6 px-6">
+                
+                <div class="w-80 h-56 rounded-xl overflow-hidden border border-border bg-background flex-shrink-0 relative group">
+                    <img src="https://image.pollinations.ai/prompt/hackathon-winner-certificate-dark-theme?width=400&height=300&nologo=true" alt="Achievement 1" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition duration-500">
+                    <div class="absolute bottom-0 left-0 right-0 bg-black/80 p-3 translate-y-full group-hover:translate-y-0 transition duration-300">
+                        <p class="text-sm font-semibold text-white">Hackathon Winner</p>
+                    </div>
+                </div>
+                
+                <div class="w-80 h-56 rounded-xl overflow-hidden border border-border bg-background flex-shrink-0 relative group">
+                    <img src="https://image.pollinations.ai/prompt/ai-machine-learning-certification-dark-modern?width=400&height=300&nologo=true" alt="Achievement 2" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition duration-500">
+                    <div class="absolute bottom-0 left-0 right-0 bg-black/80 p-3 translate-y-full group-hover:translate-y-0 transition duration-300">
+                        <p class="text-sm font-semibold text-white">ML Certification</p>
+                    </div>
+                </div>
+
+                <div class="w-80 h-56 rounded-xl overflow-hidden border border-border bg-background flex-shrink-0 relative group">
+                    <img src="https://image.pollinations.ai/prompt/tech-conference-presentation-stage-dark?width=400&height=300&nologo=true" alt="Achievement 3" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition duration-500">
+                    <div class="absolute bottom-0 left-0 right-0 bg-black/80 p-3 translate-y-full group-hover:translate-y-0 transition duration-300">
+                        <p class="text-sm font-semibold text-white">Tech Speaker</p>
+                    </div>
+                </div>
+
+                <div class="w-80 h-56 rounded-xl overflow-hidden border border-border bg-background flex-shrink-0 relative group">
+                    <img src="https://image.pollinations.ai/prompt/coding-competition-award-medal-dark?width=400&height=300&nologo=true" alt="Achievement 4" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition duration-500">
+                    <div class="absolute bottom-0 left-0 right-0 bg-black/80 p-3 translate-y-full group-hover:translate-y-0 transition duration-300">
+                        <p class="text-sm font-semibold text-white">Coding Competition</p>
+                    </div>
+                </div>
+
+                <div class="w-80 h-56 rounded-xl overflow-hidden border border-border bg-background flex-shrink-0 relative group">
+                    <img src="https://image.pollinations.ai/prompt/hackathon-winner-certificate-dark-theme?width=400&height=300&nologo=true" alt="Achievement 1" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition duration-500">
+                    <div class="absolute bottom-0 left-0 right-0 bg-black/80 p-3 translate-y-full group-hover:translate-y-0 transition duration-300">
+                        <p class="text-sm font-semibold text-white">Hackathon Winner</p>
+                    </div>
+                </div>
+                
+                <div class="w-80 h-56 rounded-xl overflow-hidden border border-border bg-background flex-shrink-0 relative group">
+                    <img src="https://image.pollinations.ai/prompt/ai-machine-learning-certification-dark-modern?width=400&height=300&nologo=true" alt="Achievement 2" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition duration-500">
+                    <div class="absolute bottom-0 left-0 right-0 bg-black/80 p-3 translate-y-full group-hover:translate-y-0 transition duration-300">
+                        <p class="text-sm font-semibold text-white">ML Certification</p>
+                    </div>
+                </div>
+
+                <div class="w-80 h-56 rounded-xl overflow-hidden border border-border bg-background flex-shrink-0 relative group">
+                    <img src="https://image.pollinations.ai/prompt/tech-conference-presentation-stage-dark?width=400&height=300&nologo=true" alt="Achievement 3" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition duration-500">
+                    <div class="absolute bottom-0 left-0 right-0 bg-black/80 p-3 translate-y-full group-hover:translate-y-0 transition duration-300">
+                        <p class="text-sm font-semibold text-white">Tech Speaker</p>
+                    </div>
+                </div>
+
+                <div class="w-80 h-56 rounded-xl overflow-hidden border border-border bg-background flex-shrink-0 relative group">
+                    <img src="https://image.pollinations.ai/prompt/coding-competition-award-medal-dark?width=400&height=300&nologo=true" alt="Achievement 4" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition duration-500">
+                    <div class="absolute bottom-0 left-0 right-0 bg-black/80 p-3 translate-y-full group-hover:translate-y-0 transition duration-300">
+                        <p class="text-sm font-semibold text-white">Coding Competition</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <p class="text-center text-xs text-gray-500 mt-6 tracking-widest uppercase">Drag / Hover to pause</p>
+    </section>
+
+    <section id="contact" class="py-32 bg-background border-t border-border">
         <div class="max-w-3xl mx-auto px-6 text-center animate-on-scroll opacity-0 translate-y-10 transition duration-1000 ease-out">
-            <h2 class="text-sm uppercase tracking-[0.2em] text-muted mb-6 font-medium">04. What's Next?</h2>
+            <h2 class="text-sm uppercase tracking-[0.2em] text-muted mb-6 font-medium">06. What's Next?</h2>
             <h3 class="text-4xl md:text-5xl font-bold mb-8">Get In Touch</h3>
             <p class="text-muted text-lg leading-relaxed mb-10 max-w-xl mx-auto">
-                I'm currently looking for new opportunities, internships, and collaborative projects. Whether you have a question or just want to connect, I'll try my best to get back to you!
+                I'm currently looking for new opportunities, collaborative projects, or discussions around AI infrastructure. Whether you have a question or just want to connect, I'll try my best to get back to you!
             </p>
             
             <a href="mailto:puneet.raghav06@gmail.com" class="inline-block border-2 border-white text-white font-bold px-8 py-4 rounded-md hover:bg-white hover:text-black transition-colors mb-16">
                 Say Hello
             </a>
 
-            <!-- Social Links -->
             <div class="flex justify-center space-x-8 text-2xl">
                 <a href="https://github.com/puneetraghav-dev" target="_blank" class="text-muted hover:text-white hover:-translate-y-1 transition-all">
                     <i class="fab fa-github"></i>
@@ -335,12 +470,10 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-8 border-t border-border text-center text-sm text-muted">
+    <footer class="py-8 border-t border-border bg-surface text-center text-sm text-muted">
         <p>Built and designed by Puneet Raghav &copy; 2026</p>
     </footer>
 
-    <!-- Scroll Reveal Logic (Replicating Framer Motion Effects) -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const observer = new IntersectionObserver((entries) => {
