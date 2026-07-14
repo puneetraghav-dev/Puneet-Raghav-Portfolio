@@ -69,12 +69,25 @@
         }
 
         /* Modal Styles */
+        #galleryModal {
+            display: none !important;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        #galleryModal.modal-visible {
+            display: flex !important;
+            opacity: 1;
+            visibility: visible;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+        }
+        
         .modal-hidden {
-            display: none;
+            display: none !important;
         }
-        .modal-visible {
-            display: flex;
-        }
+        
         .modal-backdrop {
             background-color: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(4px);
@@ -588,7 +601,7 @@
     </section>
 
     <!-- Gallery Modal -->
-    <div id="galleryModal" class="modal-hidden modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div id="galleryModal" class="modal-hidden fixed inset-0 z-50 flex items-center justify-center p-4">
         <div class="modal-content bg-surface rounded-2xl overflow-hidden max-w-4xl w-full max-h-[90vh] flex flex-col md:flex-row border border-border">
             <!-- Image Section -->
             <div class="md:w-1/2 h-64 md:h-auto bg-background overflow-hidden flex-shrink-0">
@@ -613,7 +626,7 @@
                 </div>
                 
                 <!-- Close Button -->
-                <button onclick="closeGalleryModal()" class="mt-8 w-full border border-border text-white py-2 rounded-md font-semibold hover:border-gray-400 transition-colors">
+                <button id="closeModalBtn" class="mt-8 w-full border border-border text-white py-2 rounded-md font-semibold hover:border-gray-400 transition-colors cursor-pointer">
                     <i class="fas fa-times mr-2"></i>Close
                 </button>
             </div>
@@ -652,32 +665,39 @@
 
     <script>
         // Gallery Modal Functions
+        const galleryModal = document.getElementById('galleryModal');
+        
         function openGalleryModal(element) {
+            if (!element) return;
+            
             const headline = element.dataset.headline;
             const date = element.dataset.date;
             const venue = element.dataset.venue;
             const story = element.dataset.story;
             const imageUrl = element.querySelector('img').src;
             
-            document.getElementById('modalHeadline').textContent = headline;
-            document.getElementById('modalDate').textContent = date;
-            document.getElementById('modalVenue').textContent = venue;
-            document.getElementById('modalStory').textContent = story;
-            document.getElementById('modalImage').src = imageUrl;
+            // Set content
+            document.getElementById('modalHeadline').textContent = headline || '';
+            document.getElementById('modalDate').textContent = date || '';
+            document.getElementById('modalVenue').textContent = venue || '';
+            document.getElementById('modalStory').textContent = story || '';
+            document.getElementById('modalImage').src = imageUrl || '';
             
-            document.getElementById('galleryModal').classList.remove('modal-hidden');
-            document.getElementById('galleryModal').classList.add('modal-visible');
+            // Show modal
+            galleryModal.classList.remove('modal-hidden');
+            galleryModal.classList.add('modal-visible');
             document.body.style.overflow = 'hidden';
         }
 
         function closeGalleryModal() {
-            document.getElementById('galleryModal').classList.add('modal-hidden');
-            document.getElementById('galleryModal').classList.remove('modal-visible');
+            galleryModal.classList.remove('modal-visible');
+            galleryModal.classList.add('modal-hidden');
             document.body.style.overflow = 'auto';
         }
 
-        // Add click listeners to gallery items
+        // Initialize when DOM is ready
         document.addEventListener('DOMContentLoaded', () => {
+            // Add click listeners to gallery items
             const galleryItems = document.querySelectorAll('.gallery-item');
             galleryItems.forEach(item => {
                 item.addEventListener('click', function(e) {
@@ -686,12 +706,29 @@
                 });
             });
 
-            // Close modal when clicking outside
-            document.getElementById('galleryModal').addEventListener('click', function(e) {
+            // Close button functionality
+            const closeBtn = document.getElementById('closeModalBtn');
+            if (closeBtn) {
+                closeBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    closeGalleryModal();
+                });
+            }
+
+            // Close modal when clicking on backdrop (outside the modal content)
+            galleryModal.addEventListener('click', function(e) {
                 if (e.target === this) {
                     closeGalleryModal();
                 }
             });
+
+            // Prevent closing when clicking inside modal content
+            const modalContent = galleryModal.querySelector('.modal-content');
+            if (modalContent) {
+                modalContent.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
+            }
 
             // Scroll animation observer
             const observer = new IntersectionObserver((entries) => {
@@ -710,7 +747,7 @@
 
         // Close modal on escape key
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
+            if (e.key === 'Escape' && galleryModal.classList.contains('modal-visible')) {
                 closeGalleryModal();
             }
         });
