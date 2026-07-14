@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puneet Raghav | AI Automation & Engineering</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        background: '#050505',
+                        surface: '#111111',
+                        border: '#222222',
+                        muted: '#888888',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #050505;
+            color: #ffffff;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050505;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        
+        /* Gallery Marquee Animation */
+        @keyframes scrollX {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-scroll-container {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+        }
+        .animate-scroll-content {
+            display: inline-flex;
+            width: max-content;
+            animation: scrollX 30s linear infinite;
+        }
+        .animate-scroll-content:hover {
+            animation-play-state: paused;
+        }
+
+        /* Modal Styles */
+        #galleryModal {
+            display: none !important;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        #galleryModal.modal-visible {
+            display: flex !important;
+            opacity: 1;
+            visibility: visible;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+        }
+        
+        .modal-hidden {
+            display: none !important;
+        }
+        
+        .modal-backdrop {
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .modal-content {
+            animation: zoomIn 0.4s ease-out;
+        }
+        
+        .story-text {
+            animation: slideInRight 0.5s ease-out;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-white selection:text-black">
+
+    <nav class="fixed w-full top-0 z-50 bg-background/70 backdrop-blur-lg border-b border-white/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-white font-bold text-2xl tracking-tighter">PR<span class="text-gray-500">.</span></a>
+            
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-muted">
+                <a href="#home" class="hover:text-white transition-colors">Home</a>
+                <a href="#about" class="hover:text-white transition-colors">Who I Am</a>
+                <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+                <a href="#skills" class="hover:text-white transition-colors">Expertise</a>
+                <a href="#projects" class="hover:text-white transition-colors">Work</a>
+                <a href="#gallery" class="hover:text-white transition-colors">Gallery</a>
+                <a href="#contact" class="hover:text-white transition-colors">Connect</a>
+            </div>
+
+            <div class="md:hidden text-white text-xl">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 px-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            
+            <div class="space-y-6 animate-on-scroll opacity-0 translate-y-10 transition duration-1000 ease-out">
+                <p class="text-muted text-sm md:text-base uppercase tracking-[0.2em] font-medium">AI Engineer</p>
+                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight">
+                    Hi, I'm <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-500">Puneet Raghav.</span>
+                </h1>
+                <p class="text-muted text-lg max-w-md leading-relaxed">
+                    Building intelligent AI systems that solve real-world problems with scalability, reliability, and impact.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="https://drive.google.com/file/d/1OGDMcDqvKjMQPkpzYVDZpHt1iCB7VmD-/view?usp=drivesdk" target="_blank" class="bg-white text-black px-8 py-3 rounded-md font-semibold hover:bg-gray-200 transition-colors flex items-center gap-2">
+                        <i class="fas fa-file-pdf"></i> View Resume
+                    </a>
+                    <a href="#projects" class="border border-border bg-surface text-white px-8 py-3 rounded-md font-semibold hover:border-gray-500 transition-colors">
+                        Projects
+                    </a>
+                    <a href="#contact" class="border border-border text-white px-8 py-3 rounded-md font-semibold hover:border-white transition-colors">
+                        Contact
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex justify-center md:justify-end animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-200 ease-out">
+                <div class="relative w-72 h-[22rem] md:w-80 md:h-[28rem] rounded-2xl overflow-hidden border border-border shadow-2xl group">
+                    <img src="src/images/profile.jpeg" alt="Puneet Raghav" class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition duration-700 ease-in-out transform group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="about" class="py-32 bg-surface">
+        <div class="max-w-4xl mx-auto px-6 animate-on-scroll opacity-0 translate-y-10 transition duration-1000 ease-out">
+            <h2 class="text-sm uppercase tracking-[0.2em] text-muted mb-2 font-medium">Who I Am</h2>
+            <h3 class="text-3xl md:text-4xl font-bold mb-8">Building AI that creates real-world impact.</h3>
+            
+            <div class="text-muted text-lg leading-relaxed space-y-6">
+                <p>
+                    I'm Puneet Raghav, a final-year B.Tech Computer Science & Engineering student specializing in Artificial Intelligence and Machine Learning. I am passionate about designing and building intelligent, scalable, and production-ready AI solutions that solve real-world business problems.
+                </p>
+                <p>
+                    My expertise spans Machine Learning, Deep Learning, Natural Language Processing (NLP), Generative AI, MLOps, and Data Engineering. I enjoy working across the complete AI development lifecycle—from data collection and preprocessing to model training, evaluation, deployment, monitoring, and continuous improvement. I have hands-on experience with Python, SQL, Scikit-learn, TensorFlow, PyTorch, FastAPI, Docker, Git, DVC, and modern AI development workflows.
+                </p>
+                <p>
+                    I believe that great AI products are built by combining strong engineering principles with a deep understanding of user needs. Rather than simply building models, I focus on creating reliable, maintainable, and impactful AI systems that deliver measurable value.
+                <p>
+                    I am currently seeking opportunities to collaborate on challenging AI projects, contribute to innovative teams, and grow as an AI Engineer while creating technology that makes a meaningful impact.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-32 border-t border-border bg-background">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-sm uppercase tracking-[0.2em] text-muted mb-12 font-medium animate-on-scroll opacity-0 translate-y-10 transition duration-1000 ease-out">Experience</h2>
+            
+            <div class="relative pl-8 border-l border-border animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-100 ease-out">
+                <div class="absolute w-4 h-4 bg-gray-200 rounded-full -left-[9px] top-1 border-4 border-background"></div>
+                
+                <div class="mb-2 flex flex-col md:flex-row md:items-center justify-between">
+                    <h3 class="text-2xl font-bold text-white">UI/UX Designer Intern</h3>
+                    <span class="text-sm text-muted font-medium bg-surface px-3 py-1 rounded-full border border-border mt-2 md:mt-0">October 2025 – November 2025</span>
+                </div>
+                
+                <a href="https://www.aetherai.co/" target="_blank" class="text-lg font-medium text-gray-400 hover:text-white transition-colors inline-block mb-6">
+                    Aether AI Pvt. Ltd. <i class="fas fa-external-link-alt text-xs ml-1"></i>
+                </a>
+
+                <p class="text-muted text-base leading-relaxed mb-6">
+                    As a UI/UX Designer Intern at Aether AI, I collaborated with the development team to design intuitive, user-centric, and visually engaging mobile application interfaces. I gained hands-on experience in the complete UI/UX design process, from understanding user requirements to creating interactive prototypes and supporting implementation.
+                </p>
+
+                <h4 class="text-white font-semibold mb-3">Key Contributions:</h4>
+                <ul class="list-disc list-outside ml-5 text-muted space-y-2 mb-6">
+                    <li>Designed clean, modern, and user-friendly mobile application interfaces with a focus on usability and consistency.</li>
+                    <li>Collaborated closely with developers to ensure accurate implementation of UI designs.</li>
+                    <li>Conducted user research and translated user needs into wireframes, user flows, and interactive prototypes.</li>
+                    <li>Developed interactive prototypes to demonstrate application workflows and user interactions.</li>
+                    <li>Contributed to the creation of reusable UI components, improving design consistency and development efficiency.</li>
+                    <li>Applied user-centered design principles to enhance the overall user experience.</li>
+                </ul>
+
+                <p class="text-sm text-gray-400 bg-surface p-4 rounded-lg border border-border">
+                    <strong class="text-gray-200">Skills Strengthened:</strong> UI/UX Design, Wireframing, Prototyping, User Research, Design Systems, Collaboration, and Problem Solving within a fast-paced environment.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-32 bg-surface">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-sm uppercase tracking-[0.2em] text-muted mb-12 font-medium animate-on-scroll opacity-0 translate-y-10 transition duration-1000 ease-out">Expertise</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-background border border-border p-8 rounded-xl hover:border-gray-500 transition-colors animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-100 ease-out">
+                    <i class="fab fa-python text-3xl mb-6 text-gray-100"></i>
+                    <h3 class="text-xl font-bold mb-4">Programming</h3>
+                    <ul class="text-muted space-y-2 text-sm font-medium">
+                        <li>Python</li>
+                        <li>SQL</li>
+                        <li>Data Structures & Algorithms</li>
+                        <li>OOPs</li>
+                        <li>System Design</li>
+                    </ul>
+                </div>
+
+                <div class="bg-background border border-border p-8 rounded-xl hover:border-gray-500 transition-colors animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-200 ease-out">
+                    <i class="fas fa-database text-3xl mb-6 text-gray-100"></i>
+                    <h3 class="text-xl font-bold mb-4">Data & Analytics</h3>
+                    <ul class="text-muted space-y-2 text-sm font-medium">
+                        <li>NumPy & Pandas</li>
+                        <li>EDA</li>
+                        <li>Data Preprocessing</li>
+                        <li>Visualization</li>
+                        <li>Feature Engineering</li>
+                    </ul>
+                </div>
+
+                <div class="bg-background border border-border p-8 rounded-xl hover:border-gray-500 transition-colors animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-300 ease-out">
+                    <i class="fas fa-diagram-project text-3xl mb-6 text-gray-100"></i>
+                    <h3 class="text-xl font-bold mb-4">Machine Learning</h3>
+                    <ul class="text-muted space-y-2 text-sm font-medium">
+                        <li>Scikit-learn</li>
+                        <li>XGBoost & SVM</li>
+                        <li>Model Evaluation</li>
+                        <li>Hyperparameter Tuning</li>
+                        <li>Ensemble Methods</li>
+                    </ul>
+                </div>
+
+                <div class="bg-background border border-border p-8 rounded-xl hover:border-gray-500 transition-colors animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-400 ease-out">
+                    <i class="fas fa-brain text-3xl mb-6 text-gray-100"></i>
+                    <h3 class="text-xl font-bold mb-4">Deep Learning</h3>
+                    <ul class="text-muted space-y-2 text-sm font-medium">
+                        <li>TensorFlow & Keras</li>
+                        <li>ANN, CNN</li>
+                        <li>RNN, LSTM, GRU</li>
+                        <li>Transformers</li>
+                    </ul>
+                </div>
+
+                <div class="bg-background border border-border p-8 rounded-xl hover:border-gray-500 transition-colors animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-100 ease-out">
+                    <i class="fas fa-magnifying-glass-chart text-3xl mb-6 text-gray-100"></i>
+                    <h3 class="text-xl font-bold mb-4">NLP & LLMs</h3>
+                    <ul class="text-muted space-y-2 text-sm font-medium">
+                        <li>NLP & Text Processing</li>
+                        <li>LLMs & Prompt Engineering</li>
+                        <li>LangChain</li>
+                        <li>RAG Systems</li>
+                        <li>Embeddings & Semantic Search</li>
+                    </ul>
+                </div>
+
+                <div class="bg-background border border-border p-8 rounded-xl hover:border-gray-500 transition-colors animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-200 ease-out">
+                    <i class="fas fa-robot text-3xl mb-6 text-gray-100"></i>
+                    <h3 class="text-xl font-bold mb-4">AI Agents</h3>
+                    <ul class="text-muted space-y-2 text-sm font-medium">
+                        <li>AI Agents</li>
+                        <li>Autonomous Workflows</li>
+                        <li>Agent Orchestration</li>
+                        <li>Tool Integration</li>
+                    </ul>
+                </div>
+
+                <div class="bg-background border border-border p-8 rounded-xl hover:border-gray-500 transition-colors animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-300 ease-out">
+                    <i class="fas fa-code text-3xl mb-6 text-gray-100"></i>
+                    <h3 class="text-xl font-bold mb-4">API & Backend</h3>
+                    <ul class="text-muted space-y-2 text-sm font-medium">
+                        <li>FastAPI</li>
+                        <li>REST APIs</li>
+                        <li>Model Serving</li>
+                        <li>PostgreSQL</li>
+                        <li>ChromaDB</li>
+                    </ul>
+                </div>
+
+                <div class="bg-background border border-border p-8 rounded-xl hover:border-gray-500 transition-colors animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-400 ease-out">
+                    <i class="fas fa-rocket text-3xl mb-6 text-gray-100"></i>
+                    <h3 class="text-xl font-bold mb-4">MLOps & DevOps</h3>
+                    <ul class="text-muted space-y-2 text-sm font-medium">
+                        <li>Docker & Kubernetes</li>
+                        <li>Git & GitHub Actions</li>
+                        <li>CI/CD Pipelines</li>
+                        <li>MLflow & DVC</li>
+                        <li>Prometheus & Grafana</li>
+                    </ul>
+                </div>
+
+                <div class="bg-background border border-border p-8 rounded-xl hover:border-gray-500 transition-colors animate-on-scroll opacity-0 translate-y-10 transition duration-1000 delay-100 ease-out">
+                    <i class="fas fa-cloud text-3xl mb-6 text-gray-100"></i>
+                    <h3 class="text-xl font-bold mb-4">Cloud & Infrastructure</h3>
+                    <ul class="text-muted space-y-2 text-sm font-medium">
+                        <li>AWS (EC2, S3, ECR)</li>
+                        <li>IAM & Security</li>
+                        <li>Kubernetes (Basics)</li>
+                        <li>Infrastructure as Code</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-32 bg-background border-y border-border">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-sm uppercase tracking-[0.2em] text-muted mb-12 font-medium animate-on-scroll opacity-0 translate-y-10 transition duration-1000 ease-out">Work</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                
+                <div class="group relative bg-surface border border-border rounded-xl overflow-hidden hover:-translate-y-2 hover:border-gray-400 transition-all duration-300 flex flex-col">
+                    <div class="w-full h-40 overflow-hidden border-b border-border">
+                        <img src="https://image.pollinations.ai/prompt/data-science-feature-extraction-code-graphs-dark-minimalist?width=600&height=400&nologo=true" alt="Feature Extraction" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 transform group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-bold tracking-widest uppercase text-gray-400">Data Science</span>
+                            <a href="https://github.com/puneetraghav-dev/Data-Science-Projects/blob/main/Feature-Extraction-Project.ipynb" target="_blank" class="text-xl text-muted hover:text-white transition-colors"><i class="fab fa-github"></i></a>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white">Feature Extraction</h3>
+                        <p class="text-muted text-sm leading-relaxed mb-2 flex-grow">
+                            Feature engineering techniques applied to raw datasets to extract meaningful, model-ready features, improving downstream accuracy.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="group relative bg-surface border border-border rounded-xl overflow-hidden hover:-translate-y-2 hover:border-gray-400 transition-all duration-300 flex flex-col">
+                    <div class="w-full h-40 overflow-hidden border-b border-border">
+                        <img src="https://image.pollinations.ai/prompt/cricket-stadium-data-analytics-dashboard-dark-ui?width=600&height=400&nologo=true" alt="IPL 2022 Analysis" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 transform group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-bold tracking-widest uppercase text-gray-400">EDA</span>
+                            <a href="https://github.com/puneetraghav-dev/Data-Science-Projects/blob/main/IPL-2022-Analysis.ipynb" target="_blank" class="text-xl text-muted hover:text-white transition-colors"><i class="fab fa-github"></i></a>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white">IPL 2022 Analysis</h3>
+                        <p class="text-muted text-sm leading-relaxed mb-2 flex-grow">
+                            Exploratory Data Analysis on the Indian Premier League 2022 dataset to uncover statistics, trends, and team performances.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="group relative bg-surface border border-border rounded-xl overflow-hidden hover:-translate-y-2 hover:border-gray-400 transition-all duration-300 flex flex-col">
+                    <div class="w-full h-40 overflow-hidden border-b border-border">
+                        <img src="https://image.pollinations.ai/prompt/health-medical-insurance-data-machine-learning-dashboard-dark?width=600&height=400&nologo=true" alt="Insurance ML Pipeline" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 transform group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-bold tracking-widest uppercase text-gray-400">ML</span>
+                            <a href="https://github.com/puneetraghav-dev/Machine-Learning-Projects/blob/main/insurance_ml_pipeline.ipynb" target="_blank" class="text-xl text-muted hover:text-white transition-colors"><i class="fab fa-github"></i></a>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white">Insurance ML Pipeline</h3>
+                        <p class="text-muted text-sm leading-relaxed mb-2 flex-grow">
+                            An end-to-end Scikit-learn pipeline to predict insurance costs from demographic and health data.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="group relative bg-surface border border-border rounded-xl overflow-hidden hover:-translate-y-2 hover:border-gray-400 transition-all duration-300 flex flex-col">
+                    <div class="w-full h-40 overflow-hidden border-b border-border">
+                        <img src="https://image.pollinations.ai/prompt/linear-regression-scatter-plot-data-visualization-dark-tech?width=600&height=400&nologo=true" alt="Linear Regression Model" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 transform group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-bold tracking-widest uppercase text-gray-400">ML</span>
+                            <a href="https://github.com/puneetraghav-dev/Machine-Learning-Projects/blob/main/linear_regression_model.ipynb" target="_blank" class="text-xl text-muted hover:text-white transition-colors"><i class="fab fa-github"></i></a>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white">Linear Regression</h3>
+                        <p class="text-muted text-sm leading-relaxed mb-2 flex-grow">
+                            A predictive algorithm using Linear Regression to map continuous variables and forecast numeric trends.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="group relative bg-surface border border-border rounded-xl overflow-hidden hover:-translate-y-2 hover:border-gray-400 transition-all duration-300 flex flex-col">
+                    <div class="w-full h-40 overflow-hidden border-b border-border">
+                        <img src="https://image.pollinations.ai/prompt/iris-flower-digital-neural-network-classification-dark-ai?width=600&height=400&nologo=true" alt="Iris Flower Classification" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 transform group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-bold tracking-widest uppercase text-gray-400">Deep Learning</span>
+                            <a href="https://github.com/puneetraghav-dev/iris-flower-classification-ann" target="_blank" class="text-xl text-muted hover:text-white transition-colors"><i class="fab fa-github"></i></a>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white">Iris Flower ANN</h3>
+                        <p class="text-muted text-sm leading-relaxed mb-2 flex-grow">
+                            An Artificial Neural Network built with TensorFlow/Keras to classify Iris flower species from measurement data.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="group relative bg-surface border border-border rounded-xl overflow-hidden hover:-translate-y-2 hover:border-gray-400 transition-all duration-300 flex flex-col">
+                    <div class="w-full h-40 overflow-hidden border-b border-border">
+                        <img src="https://image.pollinations.ai/prompt/natural-language-processing-emotion-detection-text-nodes-dark?width=600&height=400&nologo=true" alt="Emotion Detection from Text" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 transform group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-bold tracking-widest uppercase text-gray-400">NLP</span>
+                            <a href="https://github.com/puneetraghav-dev/Emotion-Detection-from-Text-using-Machine-Learning-NLP" target="_blank" class="text-xl text-muted hover:text-white transition-colors"><i class="fab fa-github"></i></a>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white">Emotion Detection</h3>
+                        <p class="text-muted text-sm leading-relaxed mb-2 flex-grow">
+                            An NLP and machine learning pipeline that classifies the emotion expressed in a piece of text.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="group relative bg-surface border border-border rounded-xl overflow-hidden hover:-translate-y-2 hover:border-gray-400 transition-all duration-300 flex flex-col">
+                    <div class="w-full h-40 overflow-hidden border-b border-border">
+                        <img src="https://image.pollinations.ai/prompt/modern-factory-robotic-arm-manufacturing-quality-ai-analytics-dark?width=600&height=400&nologo=true" alt="AI Manufacturing Quality Analytics" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 transform group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-bold tracking-widest uppercase text-gray-400">AI Analytics</span>
+                            <a href="https://github.com/puneetraghav-dev/AI-Manufacturing-Quality-Analytics" target="_blank" class="text-xl text-muted hover:text-white transition-colors"><i class="fab fa-github"></i></a>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white">Manufacturing Quality</h3>
+                        <p class="text-muted text-sm leading-relaxed mb-2 flex-grow">
+                            An AI-driven analytics solution predicting and analyzing quality metrics in manufacturing environments.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="group relative bg-surface border border-border rounded-xl overflow-hidden hover:-translate-y-2 hover:border-gray-400 transition-all duration-300 flex flex-col">
+                    <div class="w-full h-40 overflow-hidden border-b border-border">
+                        <img src="https://image.pollinations.ai/prompt/handwritten-digit-classification-mnist-cnn-computer-vision-dark?width=600&height=400&nologo=true" alt="Handwritten Digit Classification" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 transform group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-bold tracking-widest uppercase text-gray-400">Computer Vision</span>
+                            <a href="https://github.com/puneetraghav-dev/Handwritten-Digit-Classification-using-Perceptron-ANN-CNN-" target="_blank" class="text-xl text-muted hover:text-white transition-colors"><i class="fab fa-github"></i></a>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white">Digit Classification</h3>
+                        <p class="text-muted text-sm leading-relaxed mb-2 flex-grow">
+                            Handwritten digit recognition implemented across Perceptron, ANN, and CNN architectures to benchmark accuracy.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-32 bg-surface overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6 mb-12">
+            <h2 class="text-sm uppercase tracking-[0.2em] text-muted font-medium animate-on-scroll opacity-0 translate-y-10 transition duration-1000 ease-out">Achievements & Gallery</h2>
+        </div>
+        
+        <div class="animate-scroll-container">
+            <div class="animate-scroll-content gap-6 px-6">
+                
+                <div class="gallery-item w-80 h-56 rounded-xl overflow-hidden border border-border bg-background flex-shrink-0 relative group cursor-pointer" 
+                     data-id="1" 
+                     data-headline="Attendee – OpenAI Academy: Future Skills for India Launch"
+                     data-date="June, 2025"
+                     data-venue="The Oberoi, New Delhi"
+                     data-story="Attended the inaugural OpenAI Academy: Future Skills for India launch in New Delhi, organized by OpenAI in partnership with the IndiaAI Future Skills Mission under the Ministry of Electronics and Information Technology (MeitY). The event brought together government leaders, AI researchers, startups, developers, educators, and innovators to discuss the future of AI education, responsible AI development, and India's growing role in the global AI ecosystem. It provided valuable insights into emerging AI technologies, industry trends, and the future of AI-powered innovation.">
+                    <img src="src/images/openai.jpeg" alt="Achievement 1" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition duration-500">
+                    <div class="absolute bottom-0 left-0 right-0 bg-black/80 p-3 translate-y-full group-hover:translate-y-0 transition duration-300">
+                        <p class="text-sm font-semibold text-white">Attendee – OpenAI Academy: Future Skills for India Launch</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item w-80 h-56 rounded-xl overflow-hidden border border-border bg-background flex-shrink-0 relative group cursor-pointer"
+                     data-id="2"
+                     data-headline="HackIndia 2025"
+                     data-date="May 2025"
+                     data-venue="Lloyd Institute of Engineering & Technology, Greater Noida"
+                     data-story="Selected for the Uttar Pradesh State-Level Offline Round of HackIndia 2025, one of India's largest AI & Web3 hackathon platforms. As a member of Team Debug Squad, I developed an AI-powered Terms & Conditions Compressor that simplifies lengthy legal documents into concise summaries while highlighting critical clauses and potential risks. The experience enhanced my expertise in AI product development, collaboration, and solving real-world problems under time-constrained environments">
+                    <img src="src/images/hackindia2025.jpeg" alt="Achievement 2" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition duration-500">
+                    <div class="absolute bottom-0 left-0 right-0 bg-black/80 p-3 translate-y-full group-hover:translate-y-0 transition duration-300">
+                        <p class="text-sm font-semibold text-white">HackIndia 2025</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item w-80 h-56 rounded-xl overflow-hidden border border-border bg-background flex-shrink-0 relative group cursor-pointer"
+                     data-id="3"
+                     data-headline="Campus Tycoon 2.0 – 2nd Prize"
+                     data-date="September 2025"
+                     data-venue="Mangalmay Group of Institutions, Greater Noida"
+                     data-story="Won Second Prize at Campus Tycoon 2.0, an entrepreneurship and startup pitching competition hosted by Mangalmay Group of Institutions. My team presented Orental, a rental platform that enables college students to access everyday essentials through an affordable rental model. The experience strengthened my understanding of product strategy, entrepreneurship, business pitching, and customer-centric solution design while showcasing an innovative startup idea before industry and academic evaluators.
+
+This version is concise, achievement-focused, and reads well in a professional portfolio. It highlights both your accomplishment (Second Prize) and the value of the project rather than simply stating that you participated.">
+                    <img src="src/images/orental.jpeg" alt="Achievement 3" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition duration-500">
+                    <div class="absolute bottom-0 left-0 right-0 bg-black/80 p-3 translate-y-full group-hover:translate-y-0 transition duration-300">
+                        <p class="text-sm font-semibold text-white">Campus Tycoon 2.0 – 2nd Prize</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item w-80 h-56 rounded-xl overflow-hidden border border-border bg-background flex-shrink-0 relative group cursor-pointer"
+                     data-id="4"
+                     data-headline="Organizer – InnovXperience 2025"
+                     data-date="October 2025"
+                     data-venue="Lloyd Institute of Management, Greater Noida & Technology"
+                     data-story="Co-organized InnovXperience 2025 at Lloyd Institute of Management & Technology, bringing together founders, entrepreneurs, creators, and industry professionals to inspire students through knowledge-sharing and networking. As the Community Partner, NEXT BENCH contributed to community engagement, event promotion, and successful execution, helping create an impactful platform for innovation, entrepreneurship, and meaningful industry connections.">
+                    <img src="src/images/innovxperience.jpeg" alt="Achievement 4" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition duration-500">
+                    <div class="absolute bottom-0 left-0 right-0 bg-black/80 p-3 translate-y-full group-hover:translate-y-0 transition duration-300">
+                        <p class="text-sm font-semibold text-white">Organizer – InnovXperience 2025</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item w-80 h-56 rounded-xl overflow-hidden border border-border bg-background flex-shrink-0 relative group cursor-pointer"
+                     data-id="5"
+                     data-headline="Startup Exhibitor & Community Partner – MiniVerse Expo 2025"
+                     data-date="October 2025"
+                     data-venue="Vishveshwarya Group Of Institutions, Greater Noida"
+                     data-story="Represented NEXT BENCH as a Startup Exhibitor and Community Partner at MiniVerse Expo 2025, an innovation and entrepreneurship showcase organized by E-Cell, Vishveshwarya Group of Institutions (VGI). The event brought together startups, student innovators, creators, and industry professionals to demonstrate innovative ideas, foster collaboration, and strengthen the startup ecosystem.
+
+At the expo, I showcased NEXT BENCH, a student-focused community dedicated to empowering aspiring entrepreneurs, creators, and innovators through networking opportunities, industry events, mentorship, and collaborative learning. As a Community Partner, NEXT BENCH also contributed to the event's outreach, community engagement, and promotion, helping increase participation and create a meaningful experience for attendees.
+
+Participating in MiniVerse Expo provided valuable experience in startup pitching, public speaking, community building, stakeholder engagement, and representing a startup in a professional innovation ecosystem, while connecting with founders, mentors, investors, and fellow innovators.">
+                    <img src="src/images/nextbench.jpeg" alt="Achievement 1" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition duration-500">
+                    <div class="absolute bottom-0 left-0 right-0 bg-black/80 p-3 translate-y-full group-hover:translate-y-0 transition duration-300">
+                        <p class="text-sm font-semibold text-white">Startup Exhibitor & Community Partner – MiniVerse Expo 2025</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item w-80 h-56 rounded-xl overflow-hidden border border-border bg-background flex-shrink-0 relative group cursor-pointer"
+                     data-id="6"
+                     data-headline="Community Partner – MiniVerse Expo"
+                     data-date="October 2025"
+                     data-venue="Vishveshwarya Group Of Institutions, Greater Noida"
+                     data-story="Partnered with E-Cell VGI through NEXT BENCH as the Community Partner for MiniVerse Expo, an innovation and startup exhibition that showcased student-led projects and emerging technologies. Contributed to community outreach, participant engagement, and event promotion, helping connect students, founders, creators, and innovators while supporting a thriving entrepreneurial ecosystem.">
+                    <img src="src/images/expo.jpeg" alt="Achievement 2" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition duration-500">
+                    <div class="absolute bottom-0 left-0 right-0 bg-black/80 p-3 translate-y-full group-hover:translate-y-0 transition duration-300">
+                        <p class="text-sm font-semibold text-white">Community Partner – MiniVerse Expo</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item w-80 h-56 rounded-xl overflow-hidden border border-border bg-background flex-shrink-0 relative group cursor-pointer"
+                     data-id="7"
+                     data-headline="Organizer – COMMIT 2025"
+                     data-date="November 2025"
+                     data-venue=" GALGOTIAS COLLEGE OF ENGINEERING AND TECHNOLOGY, GREATER NOIDA"
+                     data-story="Co-organized COMMIT 2025 at Galgotias College of Engineering & Technology in collaboration with the Google Developer Group (GDG). Through NEXT BENCH as the Community Partner, I contributed to community outreach, event promotion, and participant engagement while helping bring together founders, entrepreneurs, creators, and developers to inspire students through knowledge-sharing, networking, and innovation.">
+                    <img src="src/images/commit.jpeg" alt="Achievement 3" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition duration-500">
+                    <div class="absolute bottom-0 left-0 right-0 bg-black/80 p-3 translate-y-full group-hover:translate-y-0 transition duration-300">
+                        <p class="text-sm font-semibold text-white">Organizer – COMMIT 2025</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item w-80 h-56 rounded-xl overflow-hidden border border-border bg-background flex-shrink-0 relative group cursor-pointer"
+                     data-id="8"
+                     data-headline="OpenAI Academy Opening Ceremony"
+                     data-date="October 2024"
+                     data-venue="OpenAI Academy, India"
+                     data-story="Attended the inaugural opening ceremony of OpenAI's academy in India alongside industry leaders and AI researchers. This was an inspiring event that highlighted the democratization of AI education. I networked with fellow practitioners and gained insights into the latest developments in LLM research. It reinforced my commitment to staying at the forefront of AI innovation.">
+                    <img src="src/images/image7.jpeg" alt="Achievement 4" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition duration-500">
+                    <div class="absolute bottom-0 left-0 right-0 bg-black/80 p-3 translate-y-full group-hover:translate-y-0 transition duration-300">
+                        <p class="text-sm font-semibold text-white">OpenAI Academy Opening Ceremony</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <p class="text-center text-xs text-gray-500 mt-6 tracking-widest uppercase">Click on any image to see the story</p>
+    </section>
+
+    <!-- Gallery Modal -->
+    <div id="galleryModal" class="modal-hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div class="modal-content bg-surface rounded-2xl overflow-hidden max-w-4xl w-full max-h-[90vh] flex flex-col md:flex-row border border-border">
+            <!-- Image Section -->
+            <div class="md:w-1/2 h-64 md:h-auto bg-background overflow-hidden flex-shrink-0">
+                <img id="modalImage" src="" alt="Achievement" class="w-full h-full object-cover">
+            </div>
+            
+            <!-- Content Section -->
+            <div class="md:w-1/2 p-8 overflow-y-auto flex flex-col">
+                <div class="story-text flex-grow">
+                    <h3 id="modalHeadline" class="text-3xl font-bold mb-2 text-white"></h3>
+                    <div class="flex gap-4 mb-6 text-sm">
+                        <span class="text-muted">
+                            <i class="fas fa-calendar mr-2"></i>
+                            <span id="modalDate"></span>
+                        </span>
+                        <span class="text-muted">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span id="modalVenue"></span>
+                        </span>
+                    </div>
+                    <p id="modalStory" class="text-muted text-base leading-relaxed"></p>
+                </div>
+                
+                <!-- Close Button -->
+                <button id="closeModalBtn" class="mt-8 w-full border border-border text-white py-2 rounded-md font-semibold hover:border-gray-400 transition-colors cursor-pointer">
+                    <i class="fas fa-times mr-2"></i>Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <section id="contact" class="py-32 bg-background border-t border-border">
+        <div class="max-w-3xl mx-auto px-6 text-center animate-on-scroll opacity-0 translate-y-10 transition duration-1000 ease-out">
+            <h2 class="text-sm uppercase tracking-[0.2em] text-muted mb-6 font-medium">What's Next?</h2>
+            <h3 class="text-4xl md:text-5xl font-bold mb-8">Get In Touch</h3>
+            <p class="text-muted text-lg leading-relaxed mb-10 max-w-xl mx-auto">
+                I'm currently looking for new opportunities, collaborative projects, or discussions around AI infrastructure and automation. Whether you have a question or just want to connect, I'll try my best to get back to you!
+            </p>
+            
+            <a href="mailto:puneet.raghav06@gmail.com" class="inline-block border-2 border-white text-white font-bold px-8 py-4 rounded-md hover:bg-white hover:text-black transition-colors mb-16">
+                Say Hello
+            </a>
+
+            <div class="flex justify-center space-x-8 text-2xl">
+                <a href="https://github.com/puneetraghav-dev" target="_blank" class="text-muted hover:text-white hover:-translate-y-1 transition-all">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://x.com/puneet_raghav06" target="_blank" class="text-muted hover:text-white hover:-translate-y-1 transition-all">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+                <a href="https://www.instagram.com/buildwithpuneet?igsh=NjRhZ2t5MTdpamx5" target="_blank" class="text-muted hover:text-white hover:-translate-y-1 transition-all">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 border-t border-border bg-surface text-center text-sm text-muted">
+        <p>Built and designed by Puneet Raghav &copy; 2026</p>
+    </footer>
+
+    <script>
+        // Gallery Modal Functions
+        const galleryModal = document.getElementById('galleryModal');
+        
+        function openGalleryModal(element) {
+            if (!element) return;
+            
+            const headline = element.dataset.headline;
+            const date = element.dataset.date;
+            const venue = element.dataset.venue;
+            const story = element.dataset.story;
+            const imageUrl = element.querySelector('img').src;
+            
+            // Set content
+            document.getElementById('modalHeadline').textContent = headline || '';
+            document.getElementById('modalDate').textContent = date || '';
+            document.getElementById('modalVenue').textContent = venue || '';
+            document.getElementById('modalStory').textContent = story || '';
+            document.getElementById('modalImage').src = imageUrl || '';
+            
+            // Show modal
+            galleryModal.classList.remove('modal-hidden');
+            galleryModal.classList.add('modal-visible');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGalleryModal() {
+            galleryModal.classList.remove('modal-visible');
+            galleryModal.classList.add('modal-hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add click listeners to gallery items
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            galleryItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    openGalleryModal(this);
+                });
+            });
+
+            // Close button functionality
+            const closeBtn = document.getElementById('closeModalBtn');
+            if (closeBtn) {
+                closeBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    closeGalleryModal();
+                });
+            }
+
+            // Close modal when clicking on backdrop (outside the modal content)
+            galleryModal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeGalleryModal();
+                }
+            });
+
+            // Prevent closing when clicking inside modal content
+            const modalContent = galleryModal.querySelector('.modal-content');
+            if (modalContent) {
+                modalContent.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
+            }
+
+            // Scroll animation observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+                observer.observe(el);
+            });
+        });
+
+        // Close modal on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && galleryModal.classList.contains('modal-visible')) {
+                closeGalleryModal();
+            }
+        });
+    </script>
+</body>
+</html>
